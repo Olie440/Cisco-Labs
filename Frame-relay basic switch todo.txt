@@ -1,0 +1,39 @@
+Todo: Basic frame-relay switch
+
+
+- Create Topology
+- Configure Bumblebee to act as a Frame-Relay switch:
+	- Enable frame-relay switching
+	- Set S0/0's encapsulation to Frame-relay
+	- Route S0/0 DLCI 102 to S0/1 DLCI 201
+	- Route S0/0 DLCI 112 to S0/1 DLCI 211
+	- set interface type to DCE
+	- set clock rate to 128000
+	- Bring up s0/0
+	- Set S0/1's encapsulation to Frame-relay
+	- Route S0/1 DLCI 201 to S0/0 DLCI 102
+	- Route S0/1 DLCI 211 to S0/0 DLCI 112
+	- set interface type to DCE
+	- set clock rate to 128000
+	- Bring up s0/1
+
+- Configure Optimus:
+	- Set s0/0's encapsulation to frame-relay
+	- bring up s0/0
+	- create sub-interface s0/0.1 point to point
+	- set s0/0.1 ip address to 192.168.123.1 255.255.255.0
+	- set s0/0.1 interface DLCI to 102
+	- create sub-interface s0/0.2 point to point	
+	- set s0/0.2's ip address to 192.168.12.1 255.255.255.0
+	- set s0/0.2 interface DLCI to 112
+
+- Configure Optimus:
+	- Set s0/0's encapsulation to frame-relay
+	- bring up s0/0
+	- create sub-interface s0/0.1 point to point
+	- set s0/0.1 ip address to 192.168.123.2 255.255.255.0
+	- set s0/0.1 interface DLCI to 201
+	- create sub-interface s0/0.2 point to point	
+	- set s0/0.2's ip address to 192.168.12.2 255.255.255.0
+	- set s0/0.2 interface DLCI to 211
+

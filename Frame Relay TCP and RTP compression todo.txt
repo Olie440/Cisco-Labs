@@ -1,0 +1,37 @@
+todo:
+
+- Create Topology
+- Configure Compact:
+	- Set S0/0's encapsulation to frame-relay
+	- Create sub-interface s0/0.1 point to point
+	- Set ip address to 192.168.23.2
+	- Set interface-dlci to 102
+	- Create sub-interface s0/0.2 point to point
+	- set ip address to 193.168.32.2
+	- Set interface-dlci to 112
+	- Set F0/0's IP address to 192.168.12.2
+	- Bring up both F0/0 and S0/0
+	- Create Static route to 192.168.34.0 via 192.168.23.3
+
+	
+- Configure Decrease:
+	- Set S0/0's encapsulation to frame-relay
+	- Create sub-interface s0/0.1 point to point
+	- Set ip address to 192.168.23.3
+	- Set interface-dlci to 201
+	- Create sub-interface s0/0.2 point to point
+	- set ip address to 193.168.32.3
+	- Set interface-dlci to 211
+	- Set F0/0's IP address to 192.168.34.3
+	- Bring up both F0/0 and S0/0
+	- Create Static route to 192.168.12.0 via 192.168.32.2
+
+- Configure Optimus:
+	- Set F0/0's Ip adress to 192.168.12.1 
+	- Bring up F0/0
+	- Create default route to 192.168.12.2
+
+- Configure Ironhide:
+	- Set F0/0's Ip adress to 192.168.34.4 
+	- Bring up F0/0
+	- Create default route to 192.168.34.3

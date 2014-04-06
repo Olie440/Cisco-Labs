@@ -1,0 +1,42 @@
+Todo:
+
+Create Topology.
+Configure Mustang:
+	- Create L0 with the ip address 172.16.1.0 /24
+	- Assign E0/0 the ip address 192.168.12.1 255.255.255.0
+	- Bring up E0
+	- Assign E1/0 the ip address of 192.168.13.1 255.255.255.0
+	- Bring up E1/0
+	- Create EIGRP AS 100
+	- Add network 192.168.12.0 0.0.0.255
+	- Add network 192.168.13.0 0.0.0.255
+	- Create keychain Briggs key-ID 1 password vault 
+	- Create keychain Briggs key-ID 2 with the lifetime of 1/09/2013 to 16/09/2013
+	- Add authentiation to EIGRP 100
+	- Create a summary route of 172.16.1.0 /24
+
+Configure Hawkeye:
+	- Create L0 with the ip address 172.16.2.0 /24
+	- Assign E0/0 the ip address 192.168.12.2 255.255.255.0
+	- Bring up E0
+	- Assign E1/0 the ip address of 192.168.23.1 255.255.255.0
+	- Bring up E1/0
+	- Create EIGRP AS 100
+	- Add network 192.168.12.0 0.0.0.255
+	- Add network 192.168.23.0 0.0.0.255
+	- Create keychain Briggs key-ID 1 password vault 
+	- Create keychain Briggs key-ID 2 with the lifetime of 1/09/2013 to 16/09/2013
+	- Add authentiation to EIGRP 100
+
+Configure Armstrong:
+	- Create L0 with the ip address 172.16.3.0 /24
+	- Assign E0/0 the ip address 192.168.13.2 255.255.255.0
+	- Bring up E0
+	- Assign E1/0 the ip address of 192.168.23.2 255.255.255.0
+	- Bring up E1/0
+	- Create EIGRP AS 100
+	- Add network 192.168.13.0 0.0.0.255
+	- Add network 192.168.23.0 0.0.0.255
+	- Create keychain Briggs key-ID 1 password vault 
+	- Create keychain Briggs key-ID 2 with the lifetime of 1/09/2013 to 16/09/2013
+	- Add authentiation to EIGRP 100

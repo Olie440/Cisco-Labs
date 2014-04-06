@@ -1,0 +1,19 @@
+todo: frame-relay back to back
+
+- create the topology
+- configure optimus:
+	- set s0/0' encapsulation to frame-relay
+	- set s0/0's ip address to 192.168.123.1 255.255.255.0
+	- set s0/0's interface-type to dce
+	- set s0/0's clock rate to 128000
+	- set s0/0's interface-dlci to 102
+	- bring up s0/0
+
+- configure ironhide:
+	- set s0/0' encapsulation to frame-relay
+	- set s0/0's ip address to 192.168.123.2 255.255.255.0
+	- set s0/0's interface-dlci to 102
+	- bring up s0/0
+
+- test the connection
+

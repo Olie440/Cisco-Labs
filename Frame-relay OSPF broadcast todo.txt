@@ -1,0 +1,34 @@
+TODO:
+
+- Open the frame-relay Basics topology and save it as frame-relay broadcast (Done)
+- Create loopbacks on all three routers:
+	- Paris: 1.1.1.1 /24 (Done)
+	- Berlin 2.2.2.1 /24 (Done)
+	- Stockholm 3.3.3.0 /24 (Done)
+
+- Disable inverse ARP
+	- Paris (Done)
+	- Berlin (Done)
+	- Stockholm (Done)
+
+- Configure OSPF on all routers:
+	- Paris: 
+		- Add network 192.168.123.0 0.0.0.255  to area 0 (Done)
+		- Add network 1.1.1.0 0.0.0.255 to area 0 (Done)
+		- Set DLCI 102 and 103 to point-to-multipoint  (Done)
+		- Set OSPF to broadcast on int s0/0.1 (Done)
+
+	- Berlin:
+		- Add network 192.168.123.0 0.0.0.255 to area 0 (Done)
+		- Add network 2.2.2.0 0.0.0.255 to area 0 (Done)
+		- Set DLCI 201 to point-to-multipoint (Done)
+		- Set OSPF to broadcast on int s0/0.1 (Done)
+
+	- Stockholm:
+		- Add network 192.168.123.0 0.0.0.255 to area 0 (Done)
+		- Add network 3.3.3.0 0.0.0.255 to area 0 (Done)
+		- Set DLCI 301 to point-to-multipoint (Done)
+		- Set OSPF to broadcast on int s0/0.1 (Done)
+
+- Set OSPF priorty to 0 on s0/0.1 on both Berlin and Stockholm
+

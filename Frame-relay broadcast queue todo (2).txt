@@ -1,0 +1,35 @@
+Todo:
+
+- Create Topology
+- Configure the frame-relay switch:
+	- Enable frame-relay switching
+	- S0/0:
+		- Set encapsulation to frame-relay
+		- Set intf-type dce
+		- Set clock rate 128000
+		- Route DLCI 102 to interface S0/1 DLCI 201
+		- Bring up the interface
+
+	- S0/1:
+		- Set encapsulation to frame-relay
+		- Set intf-type dce
+		- Set clock rate 128000
+		- Route DLCI 201 to interface S0/0 DLCI 102
+		- Bring up the interface
+
+- Configure Jack:
+	- Set S0/0's encapsulation to frame-relay
+	- set S0/0's ip address to 192.168.12.1 255.255.255.0
+	- Map ip 192.168.12.2 to DLCI 102 with broadcast !important
+	- Bring up S0/0
+	- Set broadcast queue to a maximum of 50 packets with a rate of 64 kps (65536) and 20 packets per second
+
+- Configure Emma:
+	- Set S0/0's encapsulation to frame-relay
+	- set S0/0's ip address to 192.168.12.2 255.255.255.0
+	- Map ip 192.168.12.1 to DLCI 201 with broadcast !important
+	- Bring up S0/0
+	- Set broadcast queue to a maximum of 50 packets with a rate of 64 kps (65536) and 20 packets per second
+
+
+

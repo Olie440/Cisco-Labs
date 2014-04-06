@@ -1,0 +1,62 @@
+TODO:
+
+- Create a new Topology from the template
+- Setup a point to multipoint tunnel between the three routers to remind myself:
+	- Paris:
+		- set s0/0 encapsulation to frame-relay
+		- bring up s0/0
+		- create s0/0.1 with point to multipoint
+		- set ip address on s0/0.1 to 192.168.123.1 255.255.255.0
+		- turn off inverse ARP
+		- map dlci 102 to 192.168.123.2
+		- map dlci 103 to 192.168.123.3
+
+	- Berlin:
+		- set s0/0 encapsulation to frame-relay
+		- bring up s0/0
+		- create s0/0.1 with point to multipoint
+		- set ip address on s0/0.1 to 192.168.123.2 255.255.255.0
+		- turn off inverse ARP
+		- map dlci 201 to 192.168.123.1
+
+	- Stockholm:
+		- set s0/0 encapsulation to frame-relay
+		- bring up s0/0
+		- create s0/0.1 with point to multipoint
+		- set ip address on s0/0.1 to 192.168.123.3 255.255.255.0
+		- turn off inverse ARP
+		- map dlci 301 to 192.168.123.1
+
+- Check the connection between the routers
+- Set loopbacks on each of the routers:
+	- Set Paris l0 to 1.1.1.1 /24
+	- Set Berlin l0 to 2.2.2.2 /24
+	- Set Stockholm l0 to 3.3.3.3 /24
+
+- Set up OSPF on all routers:
+	- Paris:
+		- Create OSPF instance 1
+		- Add network 1.1.1.0 area 0
+		- Add network 192.168.123.0 area 0
+		- Add neighbor 192.168.123.2
+		- Add neighbor 192.168.123.3
+		- Set OSPF network type to point to multipoint non broadcast on s0/0
+		
+	- Berlin:
+		- Create OSPF instance 1
+		- Add network 2.2.2.0 area 0
+		- Add network 192.168.123.0 area 0
+		- Set OSPF network type to point to multipoint non broadcast on s0/0
+		- Set OSPF Priorty to 0
+
+	- Stockholm:
+		- Create OSPF instance 1
+		- Add network 2.2.2.0 area 0
+		- Add network 192.168.123.0 area 0
+		- Set OSPF network type to point to multipoint non broadcast on s0/0
+		- Set OSPF Priorty to 0
+
+
+
+
+		

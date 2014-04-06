@@ -1,0 +1,103 @@
+autostart = False
+version = 0.8.4
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10001
+    [[1760]]
+        image = /home/olie/iosimages/c1700-adventerprisek9-mz.124-15.T14.bin
+        ram = 128
+        idlepc = 0x80738df8
+        sparsemem = True
+        ghostios = True
+        chassis = 1760
+    [[ROUTER Bates]]
+        model = 1760
+        console = 2101
+        aux = 2501
+        cnfg = configs/Bates.cfg
+        wic0/0 = WIC-1T
+        wic0/1 = WIC-1ENET
+        s0/0 = FR s0/1
+        e0/0 = oHara e0/0
+        f0/0 = oHara f0/0
+        x = -532.0
+        y = -324.0
+        z = 1.0
+    [[ROUTER oHara]]
+        model = 1760
+        console = 2102
+        aux = 2502
+        cnfg = configs/oHara.cfg
+        wic0/0 = WIC-1T
+        wic0/1 = WIC-1ENET
+        s0/0 = Dobbs s0/0
+        e0/0 = Bates e0/0
+        f0/0 = Bates f0/0
+        x = 0.0
+        y = -331.0
+        z = 1.0
+    [[ROUTER Corleone]]
+        model = 1760
+        console = 2104
+        aux = 2504
+        cnfg = configs/Corleone.cfg
+        wic0/0 = WIC-1T
+        wic0/1 = WIC-1T
+        s0/0 = FR s0/2
+        s0/1 = Dobbs s0/1
+        x = -223.0
+        y = -1.0
+        z = 1.0
+        hx = -3.8828125
+        hy = -25.0
+    [[ROUTER Dobbs]]
+        model = 1760
+        console = 2103
+        aux = 2503
+        cnfg = configs/Dobbs.cfg
+        wic0/0 = WIC-1T
+        wic0/1 = WIC-1T
+        s0/0 = oHara s0/0
+        s0/1 = Corleone s0/1
+        x = -11.0
+        y = -119.0
+        z = 1.0
+        hx = 9.8984375
+        hy = 48.0
+    [[ROUTER Bond]]
+        model = 1760
+        console = 2105
+        aux = 2505
+        cnfg = configs/Bond.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR s0/3
+        x = -569.0
+        y = 20.0
+        z = 1.0
+        hx = 10.8359375
+        hy = 46.0
+[127.0.0.1:7201]
+    workingdir = /tmp
+    udp = 10101
+    [[1760]]
+        image = /home/olie/iosimages/c1700-adventerprisek9-mz.124-15.T14.bin
+        ram = 128
+        idlepc = 0x80738df8
+        sparsemem = True
+        ghostios = True
+        chassis = 1760
+    [[ROUTER FR]]
+        model = 1760
+        console = 2107
+        aux = 2507
+        cnfg = configs/FR.cfg
+        wic0/0 = WIC-2T
+        wic0/1 = WIC-2T
+        s0/1 = Bates s0/0
+        s0/2 = Corleone s0/0
+        s0/3 = Bond s0/0
+        x = -435.0
+        y = -164.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs

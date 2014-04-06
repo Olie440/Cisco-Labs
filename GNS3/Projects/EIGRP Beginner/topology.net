@@ -1,0 +1,50 @@
+autostart = False
+version = 0.8.4
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10001
+    [[1760]]
+        image = /home/olie/iosimages/c1700-adventerprisek9-mz.124-15.T14.bin
+        ram = 128
+        idlepc = 0x80f902fc
+        sparsemem = True
+        ghostios = True
+        chassis = 1760
+    [[ROUTER Hawkeye]]
+        model = 1760
+        console = 2102
+        aux = 2502
+        cnfg = configs/Hawkeye.cfg
+        wic0/0 = WIC-1ENET
+        wic0/1 = WIC-1ENET
+        e0/0 = Mustang e0/0
+        e0/1 = Armstrong e0/1
+        x = -229.0
+        y = 10.0
+        z = 1.0
+    [[ROUTER Armstrong]]
+        model = 1760
+        console = 2103
+        aux = 2503
+        cnfg = configs/Armstrong.cfg
+        wic0/0 = WIC-1ENET
+        wic0/1 = WIC-1ENET
+        e0/0 = Mustang e0/1
+        e0/1 = Hawkeye e0/1
+        x = 71.0
+        y = 10.0
+        z = 1.0
+    [[ROUTER Mustang]]
+        model = 1760
+        console = 2101
+        aux = 2501
+        cnfg = configs/Mustang.cfg
+        wic0/0 = WIC-1ENET
+        wic0/1 = WIC-1ENET
+        e0/0 = Hawkeye e0/0
+        e0/1 = Armstrong e0/0
+        x = -78.0
+        y = -204.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs

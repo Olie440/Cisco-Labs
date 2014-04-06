@@ -1,0 +1,45 @@
+autostart = False
+version = 0.8.4
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10001
+    [[1760]]
+        image = /home/olie/iosimages/c1700-adventerprisek9-mz.124-15.T14.bin
+        ram = 128
+        idlepc = 0x80738df8
+        sparsemem = True
+        ghostios = True
+        chassis = 1760
+    [[ROUTER FR]]
+        model = 1760
+        console = 2101
+        aux = 2501
+        cnfg = configs/FR.cfg
+        wic0/0 = WIC-2T
+        s0/0 = Jack s0/0
+        s0/1 = Emma s0/0
+        x = -35.0
+        y = -43.0
+        z = 1.0
+    [[ROUTER Emma]]
+        model = 1760
+        console = 2102
+        aux = 2502
+        cnfg = configs/Emma.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR s0/1
+        x = 241.0
+        y = -42.0
+        z = 1.0
+    [[ROUTER Jack]]
+        model = 1760
+        console = 2103
+        aux = 2503
+        cnfg = configs/Jack.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR s0/0
+        x = -289.0
+        y = -43.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs

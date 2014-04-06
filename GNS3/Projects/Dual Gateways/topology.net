@@ -1,0 +1,67 @@
+autostart = False
+version = 0.8.4
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10001
+    [[1760]]
+        image = /home/olie/iosimages/c1700-adventerprisek9-mz.124-15.T14.bin
+        ram = 128
+        idlepc = 0x80738df8
+        sparsemem = True
+        ghostios = True
+        chassis = 1760
+    [[ETHSW SW1]]
+        1 = access 1 Olie1 f0/0
+        2 = access 1 Olie2 f0/0
+        3 = access 1 R4 f0/0
+        x = -229.5
+        y = 30.0
+        z = 1.0
+    [[ROUTER R4]]
+        model = 1760
+        console = 2108
+        aux = 2508
+        f0/0 = SW1 3
+        x = -219.0
+        y = 158.0
+        z = 1.0
+    [[ROUTER Olie1]]
+        model = 1760
+        console = 2101
+        aux = 2501
+        wic0/0 = WIC-1T
+        wic0/1 = WIC-1ENET
+        s0/0 = Olie3 s0/0
+        e0/0 = Olie2 e0/0
+        f0/0 = SW1 1
+        cnfg = configs/Olie1.cfg
+        x = -362.0
+        y = -179.0
+        z = 1.0
+    [[ROUTER Olie2]]
+        model = 1760
+        console = 2102
+        aux = 2502
+        wic0/0 = WIC-1T
+        wic0/1 = WIC-1ENET
+        s0/0 = Olie3 s0/1
+        e0/0 = Olie1 e0/0
+        f0/0 = SW1 2
+        cnfg = configs/Olie2.cfg
+        x = -72.0
+        y = -181.0
+        z = 1.0
+    [[ROUTER Olie3]]
+        model = 1760
+        console = 2103
+        aux = 2503
+        wic0/0 = WIC-1T
+        wic0/1 = WIC-1T
+        s0/0 = Olie1 s0/0
+        s0/1 = Olie2 s0/0
+        cnfg = configs/Olie3.cfg
+        x = -225.0
+        y = -303.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs

@@ -1,0 +1,50 @@
+TODO:
+
+- Create Topology
+- Create the following routes on the frame-relay switch: 
+
+	- S0/0 DLCI 112 to S0/1 211 (Done)
+	- S0/0 DLCI 102 to S0/1 201 (Done)
+	- S0/0 DLCI 103 to S1/0 301 (Done)
+	- S0/1 DLCI 211 to S0/1 112 (Done)
+	- S0/1 DLCI 201 to S0/0 102 (Done)
+	- S1/0 DLCI 301 to S0/1 103 (Done)
+
+- Configure frame-relay on the three routers (remember its always the local DLCI that you map the remote ip to) :
+	- Paris:
+		- Set S0/0 to encapsulation frame-relay (Done)
+		- Create sub-interface s0/0.1 (multipoint): 
+			- Set IP Address to 192.168.123.1 255.255.255.0 (Done)
+			- Map DLCI 102 to IP 192.168.123.2 (Done)
+			- Map DLCI 103 to IP 192.168.123.3 (Done)
+
+		- Create sub-interface s0/0.2 (point-to-point):
+			- Set IP Address to 192.168.12.1 255.255.255.0 (Done)
+			- Set interface DLCI to 112 (Done)
+		
+		- Bring S0/0 up (Done)
+
+	- Berlin:
+		- Set S0/0 to encapsulation frame-relay
+		- Create sub-interface S0/0.1 (multipoint): 
+			- Set IP Address 192.168.123.2 255.255.255.0 (Done)
+			- Map DLCI 201 to IP 192.168.123.1 (Done)
+		
+		- Create sub-interface S0/0.2 (point-to-point):
+			- Set IP Address to 192.168.12.2 255.255.255.0 (Done)
+			- Set interface DLCI to 211 (Done)
+ 
+		
+		- Bring S0/0 up (Done)
+	
+	Stockholm:
+		- Set S0/0 to encapsulation frame-relay
+		- Create sub-interface s0/0.1 (multipoint):
+			- Set IP Address to 192.168.123.3 255.255.255.0 (Done)
+			- Map DLCI 301 to IP 192.168.123.1 (Done)
+
+		- Bring S0/0 up (Done)
+
+
+
+

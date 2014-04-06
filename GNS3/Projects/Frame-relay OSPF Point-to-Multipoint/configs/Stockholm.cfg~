@@ -1,0 +1,109 @@
+!
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Stockholm
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+memory-size iomem 15
+no ip icmp rate-limit unreachable
+ip cef
+!
+!
+!
+!
+no ip domain lookup
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+archive
+ log config
+  hidekeys
+! 
+!
+!
+!
+ip tcp synwait-time 5
+!
+!
+!
+!
+interface Loopback0
+ ip address 3.3.3.1 255.255.255.0
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ speed auto
+!
+interface Serial0/0
+ no ip address
+ encapsulation frame-relay
+!
+interface Serial0/0.1 multipoint
+ ip address 192.168.123.3 255.255.255.0
+ ip ospf network point-to-multipoint
+ snmp trap link-status
+ frame-relay map ip 192.168.123.1 301 broadcast
+ no frame-relay inverse-arp
+!
+router ospf 1
+ log-adjacency-changes
+ network 3.3.3.0 0.0.0.255 area 0
+ network 192.168.123.0 0.0.0.255 area 0
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+end

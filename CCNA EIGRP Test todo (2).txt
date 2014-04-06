@@ -1,0 +1,32 @@
+todo:
+
+- Create Topology. Done, with a router as a FR switch
+- Basic config on all routers (hostname, logging synch, ip addresses, loopbacks):
+	- Bates Done
+	- Bond	Done						
+	- Corleone Done	
+	- Dobbs Done
+	- oHara Done
+
+- Frame Relay:
+	- Bates	Done
+	- Bond Done
+	- Corleone Done
+
+- Setup Basic EIGRP (make sure to disable auto summary):
+	- Bates Done
+	- Bond Done
+	- Corleone Done
+	- Dobbs Done
+	- oHara Done
+
+- Setup Advanced EIGRP:
+	- Bates Done
+	- oHara	Done
+
+- Make f0/0 only used for successor routes. Done
+- Change EIGRP k values so that delay is the only metric. Done!
+- Enable authentication between Dobbs and Corleone. Done
+
+
+

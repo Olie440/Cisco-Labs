@@ -1,0 +1,57 @@
+autostart = False
+version = 0.8.4
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10001
+    [[1760]]
+        image = /home/olie/iosimages/c1700-adventerprisek9-mz.124-15.T14.bin
+        ram = 128
+        idlepc = 0x80738df8
+        sparsemem = True
+        ghostios = True
+        chassis = 1760
+    [[ROUTER Paris]]
+        model = 1760
+        console = 2101
+        aux = 2501
+        cnfg = configs/Paris.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR s0/0
+        x = -535.0
+        y = -167.0
+        z = 1.0
+    [[ROUTER FR]]
+        model = 1760
+        console = 2103
+        aux = 2503
+        cnfg = configs/FR.cfg
+        wic0/0 = WIC-2T
+        wic0/1 = WIC-1T
+        s0/0 = Paris s0/0
+        s0/1 = Berlin s0/0
+        s0/2 = Stockholm s0/0
+        x = -250.0
+        y = -163.0
+        z = 1.0
+    [[ROUTER Berlin]]
+        model = 1760
+        console = 2104
+        aux = 2504
+        cnfg = configs/Berlin.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR s0/1
+        x = -47.0
+        y = -265.0
+        z = 1.0
+    [[ROUTER Stockholm]]
+        model = 1760
+        console = 2102
+        aux = 2502
+        cnfg = configs/Stockholm.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR s0/2
+        x = -77.0
+        y = -2.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs

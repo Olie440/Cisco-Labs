@@ -1,0 +1,69 @@
+autostart = False
+version = 0.8.4
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10001
+    [[1760]]
+        image = /home/olie/iosimages/c1700-adventerprisek9-mz.124-15.T14.bin
+        ram = 128
+        idlepc = 0x80f902fc
+        sparsemem = True
+        ghostios = True
+        chassis = 1760
+    [[ROUTER Compact]]
+        model = 1760
+        console = 2102
+        aux = 2502
+        cnfg = configs/Compact.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR1 1
+        f0/0 = Optimus f0/0
+        x = -422.0
+        y = -366.0
+        z = 1.0
+    [[ROUTER Optimus]]
+        model = 1760
+        console = 2101
+        aux = 2501
+        cnfg = configs/Optimus.cfg
+        wic0/0 = WIC-1T
+        f0/0 = Compact f0/0
+        x = -422.0
+        y = -122.0
+        z = 1.0
+        hx = -10.03125
+        hy = -25.0
+    [[FRSW FR1]]
+        1:102 = 2:201
+        1:112 = 2:211
+        2:201 = 1:102
+        2:211 = 1:112
+        1 = Compact s0/0
+        2 = Decrease s0/0
+        x = -139.5
+        y = -364.5
+        z = 1.0
+    [[ROUTER Decrease]]
+        model = 1760
+        console = 2103
+        aux = 2503
+        cnfg = configs/Decrease.cfg
+        wic0/0 = WIC-1T
+        s0/0 = FR1 2
+        f0/0 = Ironhide f0/0
+        x = 114.0
+        y = -357.0
+        z = 1.0
+        hx = -6.2578125
+        hy = -26.0
+    [[ROUTER Ironhide]]
+        model = 1760
+        console = 2104
+        aux = 2504
+        cnfg = configs/Ironhide.cfg
+        f0/0 = Decrease f0/0
+        x = 112.0
+        y = -125.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
